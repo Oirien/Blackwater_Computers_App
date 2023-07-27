@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
-from models.components.component import Component
+from models.builds import Build
 from app import db
 
-components_blueprint = Blueprint("components", __name__)
+builds_blueprint = Blueprint("builds", __name__)
