@@ -1,7 +1,5 @@
 from app import db
-from models.builds import Build
-from models.users import User
-from models.componentlist import ComponentList
+
 from models.components.component import *
 from models.components.case import *
 from models.components.cpu_cooler import *
@@ -11,6 +9,9 @@ from models.components.motherboard import *
 from models.components.psu import *
 from models.components.ram import *
 from models.components.storage import *
+from models.users import User
+from models.builds import Build
+from models.componentlist import ComponentList
 import click
 
 from flask.cli import with_appcontext
