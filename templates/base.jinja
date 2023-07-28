@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blackwater Computers</title>
+
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="header">
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/users">Users</a>
+      </li>
+      <li>
+        <a href="/builds">Builds</a>
+      </li>
+      <li>
+        <a href="/components">Components</a>
+      </li>
+    </ul>
+  </nav>
+  <section id="content">
+      {% block content %}
+
+      {% endblock%}
+  </section>
+  </main>
+</body>
+</html>
