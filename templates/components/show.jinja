@@ -1,5 +1,13 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-
+<main>
+    <section>
+        <div>
+        <img src="{{component.image_link}}">
+        </div>
+        <h1>{{component.name}}</h1>
+        <p>{{component.description}}</p>
+    </section>
+</main>
 {% endblock %}

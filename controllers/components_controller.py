@@ -14,3 +14,8 @@ def components():
 def component_type(type):
     component_type = Component.query.filter_by(type = type)
     return render_template("components/sort.jinja", components=component_type)
+
+@components_blueprint.route("/components/sort/<id>")
+def component_show(id):
+    component = Component.query.get(id)
+    return render_template("components/show.jinja", component=component)
