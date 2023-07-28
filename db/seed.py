@@ -1,14 +1,14 @@
 from app import db
 
 from models.components.component import *
-from models.components.case import *
-from models.components.cpu_cooler import *
-from models.components.cpu import *
-from models.components.gpu import *
-from models.components.motherboard import *
-from models.components.psu import *
-from models.components.ram import *
-from models.components.storage import *
+# from models.components.case import *
+# from models.components.cpu_cooler import *
+# from models.components.cpu import *
+# from models.components.gpu import *
+# from models.components.motherboard import *
+# from models.components.psu import *
+# from models.components.ram import *
+# from models.components.storage import *
 from models.users import User
 from models.builds import Build
 from models.componentlist import ComponentList
@@ -23,30 +23,21 @@ def seed():
     Build.query.delete()
     Component.query.delete()
     ComponentList.query.delete()
+
     user1 = User(first_name="Seb", last_name="Morales", email="S.Morales@gmail.com")
     user2 = User(first_name="Steve", last_name="Mindo", email="S.Mindo999@gmail.com")
     user3 = User(first_name="Simon", last_name="Malkin", email="S.Malkin64@gmail.com")
-    component1 = Component(name="Motherboard", description="This is a Motherboard", image_link="This is a picture of a motherboard", type=1)
-    component2 = Component(name="CPU", description="This is a CPU", image_link="This is a picture of a CPU", type=2)
-    component3 = Component(name="GPU", description="This is a GPU", image_link="This is a picture of a GPU", type=3)
-    component4 = Component(name="Case", description="This is a Case", image_link="This is a picture of a Case", type=4)
-    componentlist1 = ComponentList(build_id=1, component_id=1)
-    componentlist2 = ComponentList(build_id=1, component_id=2)
-    componentlist3 = ComponentList(build_id=1, component_id=3)
-    componentlist4 = ComponentList(build_id=1, component_id=4)
-    build1 = Build(user_id=1)
+    db.session.add_all([user1, user2, user3])
+    db.session.commit()
 
-    db.session.add(user1)
-    db.session.add(user2)
-    db.session.add(user3)
-    db.session.add(component1)
-    db.session.add(component2)
-    db.session.add(component3)
-    db.session.add(component4)
-    db.session.add(componentlist1)
-    db.session.add(componentlist2)
-    db.session.add(componentlist3)
-    db.session.add(componentlist4)
-    db.session.add(build1)
+    motherboard1 = Motherboard(name="ASUS Prime Z590-A", description="This is a motherboard description", image_link="This is a motherboard picture", type="Motherboard", price=200, manufacturer="ASUS", power_draw=20, chipset="Z590")
+    motherboard2 = Motherboard(name="GIGABYTE B550 AORUS Elite", description="This is a motherboard description", image_link="This is a motherboard picture", type="Motherboard", price=150, manufacturer="GIGABYTE", power_draw=25, chipset="B550")
+    motherboard3 = Motherboard(name="MSI B450 TOMAHAWK MAX", description="This is a motherboard description", image_link="This is a motherboard picture", type="Motherboard", price=120, manufacturer="MSI", power_draw=18, chipset="B450")
+    db.session.add_all([motherboard1, motherboard2, motherboard3])
+    db.session.commit()
 
+    cpu1 = Cpu(name="Intel Core i9-13900K", description="This is a CPU description", image_link="This is a cpu picture", type="CPU", price=500, manufacturer="Intel", power_draw=150, chipset="LGA 1200")
+    cpu2 = Cpu(name="AMD Ryzen 9 5950X", description="This is a CPU description", image_link="This is a cpu picture", type="CPU", price=400, manufacturer="AMD", power_draw=120, chipset="AM4")
+    cpu3 = Cpu(name="Intel Core i5-12600K", description="This is a CPU description", image_link="This is a cpu picture", type="CPU", price=300, manufacturer="Intel", power_draw=100, chipset="LGA 1200")
+    db.session.add_all([cpu1, cpu2, cpu3])
     db.session.commit()
