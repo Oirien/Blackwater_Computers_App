@@ -2,4 +2,24 @@
 
 {% block content %}
 
+    <h1>Build order number: {{build.id}}</h1>
+        <div>
+            {% for user in users %}
+                {% if user.id == build.user_id %}
+                    <h5>{{user.first_name}} {{user.last_name}}</h5>
+                    {% for component in build.componentlist %}
+                        {% for part in components %}
+                            {% if component.component_id == part.id %}
+                                <ul>
+                                    <li>{{part.name}}</li>
+                                    <li>{{part.description}}</li>
+                                    <li>{{part.image_link}}</li>
+                                </ul>                        
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+
 {% endblock %}

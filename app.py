@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -19,6 +19,10 @@ app.register_blueprint(builds_blueprint)
 app.register_blueprint(components_blueprint)
 app.register_blueprint(users_blueprint)
 
-@app.route('/')
+@app.route('/home')
 def home():
     return render_template('index.jinja')
+
+@app.route('/')
+def home_redirect():
+    return redirect('/home')

@@ -1,5 +1,16 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-
+<h1>Add new user</h1>
+<div>
+    <form action="/users" method="post">
+        <label for="first_name">Enter your first name:</label>
+        <input type="text" id="first_name" name="first_name">
+        <label for="last_name">Enter your last name:</label>
+        <input type="text" id="last_name" name="last_name">
+        <label for="email">Enter your email address:</label>
+        <input type="text" id="email" name="email">
+        <button type="submit">Create User</button>
+    </form>
+</div>
 {% endblock %}
