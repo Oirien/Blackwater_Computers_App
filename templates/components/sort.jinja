@@ -1,0 +1,14 @@
+{% extends 'base.jinja'%}
+
+{% block content %}
+
+<main>
+    <div>
+        {% for component in components %}
+                <h1>{{component.name}}</h1>
+                <h2>{{component.description}}</h2>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

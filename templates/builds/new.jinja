@@ -1,5 +1,10 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-<h1>TODO: Create build form</h1>
+<h1>Order New Build</h1>
+<div>
+    <form action="/builds" method="post">
+        <button type="submit">Create build</button>
+    </form>
+</div>
 {% endblock %}
