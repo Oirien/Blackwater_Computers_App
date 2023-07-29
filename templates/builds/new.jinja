@@ -16,7 +16,7 @@
         <select name="{{ component_type }}" id="{{ component_type }}">
             <option value="">Select a {{ component_type }}</option>
             {% for component in components if component.type == component_type %}
-                <option value="{{ component.id }}">{{ component.name }}</option>
+                <option value="{{ component.id }}">{{ component.name }}: £{{component.price}}</option>
             {% endfor %}
         </select>
     {% endfor %}

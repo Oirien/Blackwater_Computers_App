@@ -26,7 +26,7 @@ def single_build(id):
 def build_form():
      users = User.query.all()
      components = Component.query.all()
-     component_types = list(set(component.type for component in components))
+     component_types = sorted(list(set(component.type for component in components)))
 
      return render_template('builds/new.jinja', users=users, components=components, component_types=component_types)
 
