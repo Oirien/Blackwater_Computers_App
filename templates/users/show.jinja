@@ -6,18 +6,22 @@
 <ul>
     {% for build in builds  %}
         {% if build.user_id == user.id %}
-            <h4> Build order number {{build.id}} </h4>
-            {% for component in build.componentlist %}
-                {% for part in components %}
-                    {% if component.component_id == part.id %}
-                        <ul>
-                            <li>{{part.name}}</li>
-                            <li>{{part.description}}</li>
-                            <li>{{part.image_link}}</li>
-                        </ul>                        
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
+            <details>
+                <summary><h4> Build order number {{build.id}} </h4></summary>
+                    <div>
+                        {% for component in build.componentlist %}
+                            {% for part in components %}
+                                {% if component.component_id == part.id %}
+                                    <ul>
+                                        <li>{{part.name}}</li>
+                                        <li>{{part.description}}</li>
+                                        <li>{{part.image_link}}</li>
+                                    </ul>                        
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+            </details>
         {% endif %}
     {% endfor %}
 </ul>

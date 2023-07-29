@@ -1,14 +1,10 @@
-{% extends 'base.jinja'%}
+{% extends 'base.jinja' %}
 
 {% block content %}
+    <h1>{{ type }}'s</h1>
 
-<main>
-    <div>
-        {% for component in components %}
-                <h1><a href="/components/sort/{{component.type}}">{{component.type}}</a></h1>
-                <h2>{{component.description}}</h2>
-        {% endfor %}
-    </div>
-</main>
+    {% for component in components %}
+        <p><a href="/components/show/{{ component.id }}">{{ component.name }}</a></p>
+    {% endfor %}
 
 {% endblock %}

@@ -1,18 +1,10 @@
-{% extends 'base.jinja'%}
+{% extends 'base.jinja' %}
 
 {% block content %}
 
-<h1>Components</h1>
-
-<main>
-  <div>
-    <h1><a href="/components/Motherboards">Motherboards</a></h1>
-    <h1><a href="/components/2">CPU's</a></h1>
-    <h1><a href="/components/3">GPU's</a></h1>
-    <h1><a href="/components/4">Cases</a></h1>
-  </div>
-</main>
-
-
+    <h1>Browse Components</h1>
+    {% for component_type in component_types %}
+        <p><a href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+    {% endfor %}
 
 {% endblock %}

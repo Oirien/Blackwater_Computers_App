@@ -1,13 +1,11 @@
-{% extends 'base.jinja'%}
+{% extends 'base.jinja' %}
 
 {% block content %}
-<main>
-    <section>
-        <div>
-        <img src="{{component.image_link}}">
-        </div>
-        <h1>{{component.name}}</h1>
-        <p>{{component.description}}</p>
-    </section>
-</main>
+    {% if component %}
+        <h1>{{ component.name }}</h1>
+        <p>{{ component.description }}</p>
+        <img src="{{ component.image_link }}" alt="Component Image">
+    {% else %}
+        <p>Component not found.</p>
+    {% endif %}
 {% endblock %}
