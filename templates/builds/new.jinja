@@ -10,7 +10,6 @@
             <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
         {% endfor %}
     </select>
-    <br>
 
     {% for component_type in component_types %}
         <label for="{{ component_type }}">{{ component_type }}:</label>
@@ -20,7 +19,6 @@
                 <option value="{{ component.id }}">{{ component.name }}</option>
             {% endfor %}
         </select>
-        <br>
     {% endfor %}
 
     <button type="submit">Create Build</button>

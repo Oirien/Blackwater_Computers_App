@@ -8,7 +8,6 @@
     <h2><a href="/builds/new"> Create new build</a></h2>
   <div>
     {% for build in builds  %}
-    
         <h4><a href="/builds/{{ build.id }}"> Build order number {{build.id}} </a></h4>
             {% for user in users %}
                 {% if user.id == build.user_id %}

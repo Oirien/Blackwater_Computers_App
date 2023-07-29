@@ -5,11 +5,13 @@
     <h1>Build order number: {{ build.id }}</h1>
     <h5>{{ build.users.first_name }} {{ build.users.last_name }}</h5>
     
-    {% for component_entry in components %}
+    {% for component_part in components %}
         <ul>
-            <li>{{ component_entry.component.name }}</li>
-            <li>{{ component_entry.component.description }}</li>
-            <li>{{ component_entry.component.image_link }}</li>
+            <li>{{ component_part.component.image_link }}</li>
+            <div>
+                <li>{{ component_part.component.name }}</li>
+                <li>{{ component_part.component.description }}</li>
+            </div>
         </ul>
     {% endfor %}
 
