@@ -6,3 +6,4 @@ class ComponentList(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     component_id = db.Column(db.Integer, db.ForeignKey('components.id'))
     build_id = db.Column(db.Integer, db.ForeignKey('builds.id'))
+    component = db.relationship('Component', backref='component_list')

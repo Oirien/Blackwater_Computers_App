@@ -18,11 +18,12 @@ from flask.cli import with_appcontext
 
 @click.command(name='seed')
 @with_appcontext
-def seed():
-    User.query.delete()
-    Build.query.delete()    
-    Component.query.delete()
+def seed():    
     ComponentList.query.delete()
+    Component.query.delete()
+    Build.query.delete()
+    User.query.delete()        
+    
 
     user1 = User(first_name="Seb", last_name="Morales", email="S.Morales@gmail.com")
     user2 = User(first_name="Steve", last_name="Mindo", email="S.Mindo999@gmail.com")

@@ -18,7 +18,8 @@ def builds():
 def single_build(id):
     build = Build.query.get(id)
     users = User.query.all()
-    components = Component.query.all()
+    components = ComponentList.query.filter_by(build_id=id).join(Component).all()
+
     return render_template("builds/show.jinja", build=build, users=users, components=components)
 
 @builds_blueprint.route("/builds/new")

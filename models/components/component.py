@@ -31,7 +31,7 @@ class Cpu(Component):
     
 
     __mapper_args__ = {
-        'polymorphic_identity': 'cpu'
+        'polymorphic_identity': 'CPU'
     }
 
 class Case(Component):
@@ -44,7 +44,7 @@ class Case(Component):
         return Component.__table__.c.type
 
     __mapper_args__ = {
-        'polymorphic_identity': 'case'
+        'polymorphic_identity': 'Case'
     }
     
 class Cpu_Cooler(Component):

@@ -1,25 +1,16 @@
-{% extends 'base.jinja'%}
+{% extends 'base.jinja' %}
 
 {% block content %}
 
-    <h1>Build order number: {{build.id}}</h1>
-        <div>
-            {% for user in users %}
-                {% if user.id == build.user_id %}
-                    <h5>{{user.first_name}} {{user.last_name}}</h5>
-                    {% for component in build.componentlist %}
-                        {% for part in components %}
-                            {% if component.component_id == part.id %}
-                                <ul>
-                                    <li>{{part.name}}</li>
-                                    <li>{{part.description}}</li>
-                                    <li>{{part.image_link}}</li>
-                                </ul>                        
-                            {% endif %}
-                        {% endfor %}
-                    {% endfor %}
-                {% endif %}
-            {% endfor %}
-        </div>
+    <h1>Build order number: {{ build.id }}</h1>
+    <h5>{{ build.users.first_name }} {{ build.users.last_name }}</h5>
+    
+    {% for component_entry in components %}
+        <ul>
+            <li>{{ component_entry.component.name }}</li>
+            <li>{{ component_entry.component.description }}</li>
+            <li>{{ component_entry.component.image_link }}</li>
+        </ul>
+    {% endfor %}
 
 {% endblock %}
