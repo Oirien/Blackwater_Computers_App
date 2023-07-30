@@ -1,11 +1,15 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-    {% if component %}
-        <h1>{{ component.name }}</h1>
-        <p>{{ component.description }}</p>
-        <img src="{{ component.image_link }}" alt="Component Image">
-    {% else %}
-        <p>Component not found.</p>
-    {% endif %}
+<main>
+    <div>
+        {% if component %}
+            <h1>{{ component.name }}</h1>
+            <p>{{ component.description }}</p>
+            <img src="{{ component.image_link }}" alt="Component Image">
+        {% else %}
+            <p>Component not found.</p>
+        {% endif %}
+    </div>
+</main>
 {% endblock %}

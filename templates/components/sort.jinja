@@ -1,10 +1,14 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
+
+<main>
     <h1>{{ type }}'s</h1>
-
-    {% for component in components %}
-        <p><a href="/components/show/{{ component.id }}">{{ component.name }}</a></p>
-    {% endfor %}
-
+        <div>
+            {% for component in components %}
+                <p><a href="/components/show/{{ component.id }}">{{ component.name }}</a></p>
+                <img src="{{component.image_link}}" alt="{{component.image_link}}">
+            {% endfor %}
+        </div>
+</main>
 {% endblock %}

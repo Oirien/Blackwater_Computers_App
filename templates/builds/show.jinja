@@ -7,10 +7,15 @@
     
     {% for component_part in components %}
         <ul>
-            <li>{{ component_part.component.image_link }}</li>
             <div>
-                <li>{{ component_part.component.name }}</li>
-                <li>{{ component_part.component.description }}</li>
+                <li>{{ component_part.component.image_link }}</li>
+                    <div>
+                        <li>{{ component_part.component.name }}</li>
+                        <li>{{ component_part.component.description }}</li>
+                        <li>{{ component_part.component.type }}</li>
+                        <li>£{{ component_part.component.price }}</li>
+                        <li>{{ component_part.component.manufacturer }}</li>
+                    </div>
             </div>
         </ul>
     {% endfor %}
