@@ -19,5 +19,7 @@
             </div>
         </ul>
     {% endfor %}
-
+        <form action="/builds/{{ build.id }}/delete" method="POST">
+            <button type="submit">Delete Build</button>
+        </form>
 {% endblock %}

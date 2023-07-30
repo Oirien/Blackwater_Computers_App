@@ -30,6 +30,7 @@ def build_form():
 
      return render_template('builds/new.jinja', users=users, components=components, component_types=component_types)
 
+
 @builds_blueprint.route("/builds", methods=['POST'])
 def new_build():
     user_id = request.form.get('user')
@@ -50,4 +51,11 @@ def new_build():
 
     db.session.commit()
 
+    return redirect("/builds")
+
+@builds_blueprint.route("/builds/<id>/delete", methods=['POST'])
+def delete_build(id):
+    build = Build.query.get(id)
+    db.session.delete(build)
+    db.session.commit()
     return redirect("/builds")
