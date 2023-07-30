@@ -9,23 +9,33 @@
                     {% if build.user_id == user.id %}
                         <details>
                             <summary><h4> Build order number {{build.id}} </h4></summary>
-                                <div>
-                                    {% for component in build.componentlist %}
-                                        {% for part in components %}
-                                            {% if component.component_id == part.id %}
-                                                <ul>
-                                                    <li>{{part.name}}</li>
-                                                    <li>{{part.description}}</li>
-                                                    <li>{{part.image_link}}</li>
-                                                    <li>£{{part.price}}</li>
-                                                </ul>                        
-                                            {% endif %}
-                                        {% endfor %}
+                            <div>
+                                {% for component in build.componentlist %}
+                                    {% for part in components %}
+                                        {% if component.component_id == part.id %}
+                                            <ul>
+                                                <li>{{part.name}}</li>
+                                                <li>{{part.description}}</li>
+                                                <li>{{part.image_link}}</li>
+                                                <li>£{{part.price}}</li>
+                                            </ul>                        
+                                        {% endif %}
                                     {% endfor %}
-                                </div>
+                                {% endfor %}
+                            </div>
                         </details>
+                            <div>
+                                {% if build.completed == True and build.delivered == True %}
+                                    <h6>Build has been delivered</h6>
+                                {% elif build.completed == True and build.delivered != True %}
+                                    <h6>Build has been completed, and will be delivered soon.</h6>
+                                {% else %}
+                                    <h6>Build is pending.</h6>
+                                {% endif %}
+                            </div>
                     {% endif %}
                 {% endfor %}
             </ul>
+
 </main>
 {% endblock %}

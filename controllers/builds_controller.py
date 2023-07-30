@@ -53,6 +53,20 @@ def new_build():
 
     return redirect("/builds")
 
+@builds_blueprint.route("/builds/<id>/complete", methods=['POST'])
+def build_completed(id):
+    build = Build.query.get(id)
+    build.completed = True
+    db.session.commit()
+    return redirect("/builds")
+
+@builds_blueprint.route("/builds/<id>/deliver", methods=['POST'])
+def build_delivered(id):
+    build = Build.query.get(id)
+    build.delivered = True
+    db.session.commit()
+    return redirect("/builds")
+
 @builds_blueprint.route("/builds/<id>/delete", methods=['POST'])
 def delete_build(id):
     build = Build.query.get(id)
