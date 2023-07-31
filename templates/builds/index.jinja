@@ -1,15 +1,15 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-<main>
-  	<h1>Builds</h1>
-    	<h2><a href="/builds/new"> Create new build</a></h2>
-		<div>
+<main class="container builds">
+  	<h1 class="builds___header">Builds</h1>
+    	<a href="/builds/new"><button class="builds__button">Create new build</button></a>
+		<div class="builds__group">
 			{% for build in builds  %}
-				<h4><a href="/builds/{{ build.id }}"> Build order number {{build.id}} </a></h4>
+				<h4 class="builds__title"><a href="/builds/{{ build.id }}"> Build order number {{build.id}} </a></h4>
 					{% for user in users %}
 						{% if user.id == build.user_id %}
-							<h5>{{user.first_name}} {{user.last_name}}</h5>
+							<h5 class="builds__username">{{user.first_name}} {{user.last_name}}</h5>
 						{% endif %}
 					{% endfor %}
 			{% endfor %}

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from sqlalchemy import text
 from models.builds import Build
 from models.components.component import Component
 from models.users import User
@@ -53,18 +54,25 @@ def new_build():
 
     return redirect("/builds")
 
+@builds_blueprint.route("/builds/<id>/edit")
+def edit_form(id):
+     components = Component.query.all()
+     component_types = sorted(list(set(component.type for component in components)))
+     build = Build.query.get(id)
+
+     return render_template('builds/edit.jinja', build=build, components=components, component_types=component_types)
+
 @builds_blueprint.route("/builds/<id>", methods=['POST'])
 def edit_build(id):
-    
+    db.session.execute(text('delete from componentlists where build_id = :val'), {'val':id})
+
     component_ids = []
 
     for component_type in request.form:
         if component_type != 'user' and request.form[component_type] != '':
             component_id = int(request.form[component_type])
             component_ids.append(component_id)
-
-    Build.query.delete(id)
-
+    
     for component_id in component_ids:
         component_list = ComponentList(component_id=component_id, build_id=id)
         db.session.add(component_list)

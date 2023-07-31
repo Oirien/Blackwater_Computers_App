@@ -1,0 +1,23 @@
+{% extends 'base.jinja'%}
+
+{% block content %}
+<main class="container editbuild">
+    <h1 class="editbuild__header">Edit Build</h1>
+        <div class="editbuild__form">
+            <form action="/builds/{{build.id}}" method="POST">
+                <div class="editbuild__wrapper">
+                    {% for component_type in component_types %}
+                        <label for="{{ component_type }}">{{ component_type }}:</label>
+                        <select name="{{ component_type }}" id="{{ component_type }}">
+                            <option class="editbuild__optionhead" value="">Select a {{ component_type }}</option>
+                            {% for component in components if component.type == component_type %}
+                                <option class="editbuild__option" value="{{ component.id }}">{{ component.name }}: £{{component.price}}</option>
+                            {% endfor %}
+                        </select>
+                    {% endfor %}
+                </div>
+            <button type="submit" class="editbuild__button">Edit Build</button>
+        </form>
+    </div>
+</main>
+{% endblock %}
