@@ -53,6 +53,27 @@ def new_build():
 
     return redirect("/builds")
 
+@builds_blueprint.route("/builds/<id>", methods=['POST'])
+def edit_build(id):
+    
+    component_ids = []
+
+    for component_type in request.form:
+        if component_type != 'user' and request.form[component_type] != '':
+            component_id = int(request.form[component_type])
+            component_ids.append(component_id)
+
+    Build.query.delete(id)
+
+    for component_id in component_ids:
+        component_list = ComponentList(component_id=component_id, build_id=id)
+        db.session.add(component_list)
+
+    db.session.commit()
+
+    return redirect("/builds")
+
+
 @builds_blueprint.route("/builds/<id>/complete", methods=['POST'])
 def build_completed(id):
     build = Build.query.get(id)

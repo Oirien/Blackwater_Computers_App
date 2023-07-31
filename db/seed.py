@@ -101,9 +101,9 @@ def seed():
     componentlist12 = ComponentList(build_id=2, component_id=8)
     componentlist13 = ComponentList(build_id=2, component_id=11)
     componentlist14 = ComponentList(build_id=2, component_id=14)
-    componentlist15 = ComponentList(build_id=3, component_id=17)
-    componentlist16 = ComponentList(build_id=3, component_id=20)
-    componentlist17 = ComponentList(build_id=3, component_id=23)
+    componentlist15 = ComponentList(build_id=2, component_id=17)
+    componentlist16 = ComponentList(build_id=2, component_id=20)
+    componentlist17 = ComponentList(build_id=2, component_id=23)
     db.session.add_all([componentlist10, componentlist11, componentlist12, componentlist13, componentlist14, componentlist15, componentlist16, componentlist17])
     db.session.commit()
 

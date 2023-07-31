@@ -8,6 +8,7 @@
                 {% for build in builds  %}
                     {% if build.user_id == user.id %}
                         <details>
+                        {% set total = namespace(price = 0) %}
                             <summary><h4> Build order number {{build.id}} </h4></summary>
                             <div>
                                 {% for component in build.componentlist %}
@@ -18,12 +19,17 @@
                                                 <li>{{part.description}}</li>
                                                 <li>{{part.image_link}}</li>
                                                 <li>£{{part.price}}</li>
-                                            </ul>                        
+                                            </ul>
+
+                                            {% set total.price = total.price + part.price %}                        
                                         {% endif %}
                                     {% endfor %}
                                 {% endfor %}
                             </div>
                         </details>
+                        <div>
+                            <h4>Total Price: £{{total.price}}</h4>
+                        </div>
                             <div>
                                 {% if build.completed == True and build.delivered == True %}
                                     <h6>Build has been delivered</h6>

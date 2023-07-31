@@ -3,6 +3,7 @@ from flask import Blueprint
 from models.users import User
 from models.builds import Build
 from models.components.component import Component
+from models.componentlist import ComponentList
 from app import db
 
 users_blueprint = Blueprint("users", __name__)
