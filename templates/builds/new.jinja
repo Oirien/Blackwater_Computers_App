@@ -1,11 +1,11 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-<main>
-    <h1>Order a New Build</h1>
-        <div>
+<main class="container newbuild">
+    <h1 class="newbuild__header">Order a New Build</h1>
+        <div class="newbuild__form">
             <form action="/builds" method="POST">
-                <div>
+                <div class="newbuild__form--user">
                     <label for="user">Select User:</label>
                     <select name="user" id="user">
                         {% for user in users %}
@@ -13,19 +13,19 @@
                         {% endfor %}
                     </select>
                 </div>
-                    <div>
-                        {% for component_type in component_types %}
-                            <label for="{{ component_type }}">{{ component_type }}:</label>
-                            <select name="{{ component_type }}" id="{{ component_type }}">
-                                <option value="">Select a {{ component_type }}</option>
-                                {% for component in components if component.type == component_type %}
-                                    <option value="{{ component.id }}">{{ component.name }}: £{{component.price}}</option>
-                                {% endfor %}
-                            </select>
-                        {% endfor %}
-                    </div>
-                <button type="submit">Create Build</button>
-            </form>
-        </div>
+                <div class="newbuild__form--component">
+                    {% for component_type in component_types %}
+                        <label for="{{ component_type }}">{{ component_type }}:</label>
+                        <select name="{{ component_type }}" id="{{ component_type }}">
+                            <option class="newbuild__optionhead" value="">Select a {{ component_type }}</option>
+                            {% for component in components if component.type == component_type %}
+                                <option class="newbuild__option" value="{{ component.id }}">{{ component.name }}: £{{component.price}}</option>
+                            {% endfor %}
+                        </select>
+                    {% endfor %}
+                </div>
+            <button class="newbuild__button" type="submit">Create Build</button>
+        </form>
+    </div>
 </main>
 {% endblock %}

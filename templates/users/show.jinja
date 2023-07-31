@@ -9,6 +9,10 @@
                     {% if build.user_id == user.id %}
                         <details>
                         {% set total = namespace(price = 0) %}
+                        {% set power = namespace(draw = 0)%}
+                        {% set supply = namespace(watts = 0)%}
+                        {% set cpu = namespace(chipset = '')%}
+                        {% set mobo = namespace(chipset ='')%}
                             <summary><h4> Build order number {{build.id}} </h4></summary>
                             <div>
                                 {% for component in build.componentlist %}
@@ -21,15 +25,34 @@
                                                 <li>£{{part.price}}</li>
                                             </ul>
 
-                                            {% set total.price = total.price + part.price %}                        
+                                            {% set total.price = total.price + part.price %}
+                                            {% if part.power_draw %}
+                                                {% set power.draw = power.draw + part.power_draw %}
+                                            {% endif %}
+                                            {% if part.power_supply %}
+                                                {% set supply.watts = supply.watts + part.power_supply %}
+                                            {% endif %}
+                                            {% if part.type == 'CPU' %}
+                                                {% set cpu.chipset = part.chipset %}
+                                            {% endif %}
+                                            {% if part.type == 'Motherboard' %}
+                                                {% set mobo.chipset = part.chipset %}
+                                            {% endif %}                   
                                         {% endif %}
                                     {% endfor %}
                                 {% endfor %}
                             </div>
                         </details>
                         <div>
+                        {% if cpu.chipset != mobo.chipset %}
+                            <h1>Warning, your CPU and Motherboard are incompatible, please edit your build.</h1>
+                        {% endif %}
+                        {% if (power.draw*1.15) >= supply.watts %}
+                            <h1>Power supply may be insufficient consider editing your build.</h1>
+                        {% endif %}
                             <h4>Total Price: £{{total.price}}</h4>
                         </div>
+                        <a href="/builds/{{ build.id}}/edit"><button type="submit">Edit Build</button></a>
                             <div>
                                 {% if build.completed == True and build.delivered == True %}
                                     <h6>Build has been delivered</h6>

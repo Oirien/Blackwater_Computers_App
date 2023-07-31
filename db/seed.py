@@ -43,7 +43,7 @@ def seed():
     db.session.add_all([psu1, psu2, psu3])
     db.session.commit()
 
-    motherboard1 = Motherboard(name="ASUS Prime Z590-A", description="This is a motherboard description", image_link="This is a motherboard picture", price=200, manufacturer="ASUS", power_draw=20, chipset="LGA1200")
+    motherboard1 = Motherboard(name="ASUS Prime Z590-A", description="This is a motherboard description", image_link="This is a motherboard picture", price=200, manufacturer="ASUS", power_draw=20, chipset="LGA 1200")
     motherboard2 = Motherboard(name="GIGABYTE B550 AORUS Elite", description="This is a motherboard description", image_link="This is a motherboard picture", price=150, manufacturer="GIGABYTE", power_draw=25, chipset="AM4")
     motherboard3 = Motherboard(name="MSI B450 TOMAHAWK MAX", description="This is a motherboard description", image_link="This is a motherboard picture", price=120, manufacturer="MSI", power_draw=18, chipset="AM4")
     db.session.add_all([motherboard1, motherboard2, motherboard3])
