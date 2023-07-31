@@ -1,17 +1,17 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-
-<main class="container users">
-	<h1 class="users__header">Users</h1>
-		<h2 class="users__button"><a href="/users/new"> Create new user</a></h2>
-			<div class="users__list">
-				{% for user in users %}
-					<ul>
-						<li><a href="/users/{{ user.id }}"> {{user.first_name}} {{user.last_name}}</a></li>
-					</ul>
-				{% endfor %}
-			</div>
+<main class="bg__users">
+	<section class="container users positionfix">
+		<h1 class="users__header">Users</h1>
+			<h2 class="users__button"><a href="/users/new"> Create new user</a></h2>
+				<div class="users__list">
+					{% for user in users %}
+						<ul>
+							<li><a href="/users/{{ user.id }}"> {{user.first_name}} {{user.last_name}}</a></li>
+						</ul>
+					{% endfor %}
+				</div>
+	</section>
 </main>
-
 {% endblock %}

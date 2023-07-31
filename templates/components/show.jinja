@@ -1,15 +1,17 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-<main class="container showcontainer">
-    <div>
-        {% if component %}
-            <h1 class="showcontainer__name">{{ component.name }}</h1>
-            <p class="showcontainer__description">{{ component.description }}</p>
-            <img class="showcontainer__image" src="{{ component.image_link }}" alt="Component Image">
-        {% else %}
-            <p>Component not found.</p>
-        {% endif %}
-    </div>
+<main class="bg__components">
+    <section class="container showcontainer positionfix">
+        <div>
+            {% if component %}
+                <h1 class="showcontainer__name">{{ component.name }}</h1>
+                <p class="showcontainer__description">{{ component.description }}</p>
+                <img class="showcontainer__image" src="{{ component.image_link }}" alt="Component Image">
+            {% else %}
+                <p>Component not found.</p>
+            {% endif %}
+        </div>
+    </section>
 </main>
 {% endblock %}

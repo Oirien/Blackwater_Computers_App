@@ -1,12 +1,13 @@
 *{
     margin: 0px;
     padding: 0px;
-    font-family: 'Share Tech Mono', monospace;
+    list-style-type: none;
+    color: whitesmoke;
 }
 
 a:visited { 
     text-decoration: none; 
-    color: rgb(129, 122, 70); 
+    color: whitesmoke; 
 }
 
 /*
@@ -16,22 +17,368 @@ a:visited {
 
     font-family: 'Tektur', cursive;
 */
+.positionfix{
+    position: relative;
+    padding-top: 2rem;
+}
+
+.bg{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-image: url(https://levvvel.com/wp-content/uploads/best-case-for-watercooling.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.815);
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .65;
+}
+
+.content{
+    position: relative;
+}
+
 
 .header{
-    height: 4rem;
-    background-color: blueviolet;
+    position: relative;
+    height: 3rem;
+    background: rgb(29, 29, 29);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 115, 0, 0.404);
 }
 
 .header__list{
-    height: 4rem;
+    position: relative;
+    height: 3rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left;
+    gap: 2rem;
     font-size: 1.5rem;
+    text-shadow: 2px 2px 4px black;
+    color: whitesmoke;
+    font-family: 'Tektur', cursive;
 }
 
 .container{
     max-width: 1200px;
     width: 100%;
-    margin: 0 auto; 
+    margin: 0 auto;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.bg__components{
+    height: 150vh;
+    width: 100vw;
+    position: relative;
+    background-image: url(https://www.ekwb.com/shop/media/wysiwyg/STL/Shop-the-loop-23-Hot-Metal-Gallery-Img4.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg__components::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.815);
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .95;
+}
+
+.bg__builds{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-image: url(https://www.steigerdynamics.com/blog/wp-content/uploads/2021/08/IMG_5841-2IG-RETOUCH-1022x575.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg__builds::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.815);
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .95;
+}
+
+.bg__users{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-image: url(https://www.steigerdynamics.com/blog/wp-content/uploads/2021/08/IMG_5861-2IG-RETOUCH.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bg__users::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.815);
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: .95;
+}
+
+.components__header{
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 0px 0px 12px black;
+    margin: 2rem;
+    
+}
+
+.components__type{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-height: 100vh;
+    font-size: 2rem;
+    font-weight: 500;
+    text-shadow:
+        2px 2px 6px  rgb(0, 0, 0),
+      -1px -1px 6px rgb(0, 0, 0),  
+       1px -1px 6px rgb(0, 0, 0),
+       -1px 1px 6px rgb(0, 0, 0),
+        1px 1px 6px rgb(0, 0, 0);
+    gap: 2rem;
+}
+
+.component__type--storagewrapper{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.component__type--storage{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://ixbt.online/live/images/original/07/69/29/2021/10/28/0ae9310e18.jpg);
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.component__type--storage:hover{
+    transform:scale(1.2);
+    font-weight: 700;
+}
+
+.component__type--RAMwrapper{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.component__type--RAM{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/04/fury-promo.jpeg);
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.component__type--RAM:hover{
+    transform:scale(1.2);
+    font-weight: 700;
+}
+
+.component__type--CPUwrapper{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.component__type--CPU{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://www.totalphase.com/media/blog/2022/08/Intel-CPU1.jpg);
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.component__type--CPU:hover{
+    transform:scale(1.2);
+    font-weight: 700;
+}
+
+.component__type--Casewrapper{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.component__type--Case{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://www.ekwb.com/shop/media/wysiwyg/Shop_the_look_014_DragonBloodV2_Img2.png);
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.component__type--Case:hover{
+    transform:scale(1.2);
+    font-weight: 700;
+}
+
+.component__type--PSUwrapper{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.component__type--PSU{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://www.club386.com/wp-content/uploads/2023/04/EVGA-GE-Series.jpg);
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.component__type--PSU:hover{
+    transform:scale(1.2);
+    font-weight: 700;
+}
+
+.component__type--GPUwrapper{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.component__type--GPU{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://powerupsblog.files.wordpress.com/2022/11/amd-unveils-worlds-most-advanced-gaming-graphics-cards.jpg?w=1400);
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.component__type--GPU:hover{
+    transform:scale(1.2);
+    font-weight: 700;
+}
+
+.component__type--Motherboardwrapper{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.component__type--Motherboard{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://www.trustedreviews.com/wp-content/uploads/sites/54/2017/05/asus-rog-strix-z270f-gaming-1.png);
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.component__type--Motherboard:hover{
+    transform:scale(1.2);
+    font-weight: 700;
+}
+
+.component__type--CPU_Coolerwrapper{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.component__type--CPU_Cooler{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://i.extremetech.com/imagery/content-types/07dPLi5ASwTPImSbG2Ms6os/hero-image.fill.size_994x559.v1685727665.png);
+    background-position: top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+}
+
+.component__type--CPU_Cooler:hover{
+    transform:scale(1.2);
+    font-weight: 700;
 }

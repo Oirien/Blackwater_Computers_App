@@ -1,18 +1,20 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-<main class="container newusers">
-    <h1 class="newusers__header">Add new user</h1>
-        <div class="newusers__form">
-            <form action="/users" method="post">
-                <label for="first_name">Enter your first name:</label>
-                    <input type="text" id="first_name" name="first_name" required>
-                <label for="last_name">Enter your last name:</label>
-                    <input type="text" id="last_name" name="last_name" required>
-                <label for="email">Enter your email address:</label>
-                    <input type="text" id="email" name="email" required>
-                <button class="newusers__button" type="submit">Create User</button>
-            </form>
-        </div>
+<main class="bg__users">
+	<section class="container users positionfix">
+        <h1 class="newusers__header">Add new user</h1>
+            <div class="newusers__form">
+                <form action="/users" method="post">
+                    <label for="first_name">Enter your first name:</label>
+                        <input type="text" id="first_name" name="first_name" required>
+                    <label for="last_name">Enter your last name:</label>
+                        <input type="text" id="last_name" name="last_name" required>
+                    <label for="email">Enter your email address:</label>
+                        <input type="text" id="email" name="email" required>
+                    <button class="newusers__button" type="submit">Create User</button>
+                </form>
+            </div>
+    </section>
 </main>
 {% endblock %}

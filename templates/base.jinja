@@ -9,30 +9,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&family=Share+Tech+Mono&family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">  
 </head>
 <body>
-  <main>
-  <nav class="header">
-  <div class="container">
-    <ul class="header__list">
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/users">Users</a>
-      </li>
-      <li>
-        <a href="/builds">Builds</a>
-      </li>
-      <li>
-        <a href="/components">Components</a>
-      </li>
-    </ul>
-  </div>
-  </nav>
-  <section id="content">
-      {% block content %}
+    <main>
+    <nav class="header">
+    <div class="container">
+        <ul class="header__list">
+            <li>
+                <a style="text-decoration:none" href="/">HOME</a>
+            </li>
+            <li>
+                <a style="text-decoration:none" href="/users">USERS</a>
+            </li>
+            <li>
+                <a style="text-decoration:none" href="/builds">BUILDS</a>
+            </li>
+            <li>
+                <a style="text-decoration:none" href="/components">COMPONENTS</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+        <section class="content" id="content">
+            {% block content %}
 
-      {% endblock%}
-  </section>
-  </main>
+            {% endblock%}
+        </section>
+    </main>
 </body>
 </html>

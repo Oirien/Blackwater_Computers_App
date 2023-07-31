@@ -1,70 +1,72 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-<main class="container showusers">
-    <h1 class="showusers__name">{{user.first_name}} {{user.last_name}}</h1>
-        <h2 class="showusers__email">{{user.email}}</h2>
-            <ul class="showusers__build">
-                {% for build in builds  %}
-                    {% if build.user_id == user.id %}
-                        <details>
-                        {% set total = namespace(price = 0) %}
-                        {% set power = namespace(draw = 0)%}
-                        {% set supply = namespace(watts = 0)%}
-                        {% set cpu = namespace(chipset = '')%}
-                        {% set mobo = namespace(chipset ='')%}
-                            <summary><h4 class="showusers__build--id"> Build order number {{build.id}} </h4></summary>
-                            <div class="showusers__build--details">
-                                {% for component in build.componentlist %}
-                                    {% for part in components %}
-                                        {% if component.component_id == part.id %}
-                                            <ul>
-                                                <li>{{part.name}}</li>
-                                                <li>{{part.description}}</li>
-                                                <li>{{part.image_link}}</li>
-                                                <li>£{{part.price}}</li>
-                                            </ul>
+<main class="bg__users">
+    <section class="container showusers positionfix">
+        <h1 class="showusers__name">{{user.first_name}} {{user.last_name}}</h1>
+            <h2 class="showusers__email">{{user.email}}</h2>
+                <ul class="showusers__build">
+                    {% for build in builds  %}
+                        {% if build.user_id == user.id %}
+                            <details>
+                            {% set total = namespace(price = 0) %}
+                            {% set power = namespace(draw = 0)%}
+                            {% set supply = namespace(watts = 0)%}
+                            {% set cpu = namespace(chipset = '')%}
+                            {% set mobo = namespace(chipset ='')%}
+                                <summary><h4 class="showusers__build--id"> Build order number {{build.id}} </h4></summary>
+                                <div class="showusers__build--details">
+                                    {% for component in build.componentlist %}
+                                        {% for part in components %}
+                                            {% if component.component_id == part.id %}
+                                                <ul>
+                                                    <li>{{part.name}}</li>
+                                                    <li>{{part.description}}</li>
+                                                    <li>{{part.image_link}}</li>
+                                                    <li>£{{part.price}}</li>
+                                                </ul>
 
-                                            {% set total.price = total.price + part.price %}
-                                            {% if part.power_draw %}
-                                                {% set power.draw = power.draw + part.power_draw %}
+                                                {% set total.price = total.price + part.price %}
+                                                {% if part.power_draw %}
+                                                    {% set power.draw = power.draw + part.power_draw %}
+                                                {% endif %}
+                                                {% if part.power_supply %}
+                                                    {% set supply.watts = supply.watts + part.power_supply %}
+                                                {% endif %}
+                                                {% if part.type == 'CPU' %}
+                                                    {% set cpu.chipset = part.chipset %}
+                                                {% endif %}
+                                                {% if part.type == 'Motherboard' %}
+                                                    {% set mobo.chipset = part.chipset %}
+                                                {% endif %}                   
                                             {% endif %}
-                                            {% if part.power_supply %}
-                                                {% set supply.watts = supply.watts + part.power_supply %}
-                                            {% endif %}
-                                            {% if part.type == 'CPU' %}
-                                                {% set cpu.chipset = part.chipset %}
-                                            {% endif %}
-                                            {% if part.type == 'Motherboard' %}
-                                                {% set mobo.chipset = part.chipset %}
-                                            {% endif %}                   
-                                        {% endif %}
+                                        {% endfor %}
                                     {% endfor %}
-                                {% endfor %}
+                                </div>
+                            </details>
+                            <div class="showusers__warnings">
+                            {% if cpu.chipset != mobo.chipset %}
+                                <h1>Warning, your CPU and Motherboard are incompatible, please edit your build.</h1>
+                            {% endif %}
+                            {% if (power.draw*1.15) >= supply.watts %}
+                                <h1>Power supply may be insufficient consider editing your build.</h1>
+                            {% endif %}
+                                <h4 class="showusers__price">Total Price: £{{total.price}}</h4>
                             </div>
-                        </details>
-                        <div class="showusers__warnings">
-                        {% if cpu.chipset != mobo.chipset %}
-                            <h1>Warning, your CPU and Motherboard are incompatible, please edit your build.</h1>
+                            <a href="/builds/{{ build.id}}/edit"><button class="showusers__editbutton" type="submit">Edit Build</button></a>
+                                <div class="showusers__status">
+                                    {% if build.completed == True and build.delivered == True %}
+                                        <h6>Build has been delivered</h6>
+                                    {% elif build.completed == True and build.delivered != True %}
+                                        <h6>Build has been completed, and will be delivered soon.</h6>
+                                    {% else %}
+                                        <h6>Build is pending.</h6>
+                                    {% endif %}
+                                </div>
                         {% endif %}
-                        {% if (power.draw*1.15) >= supply.watts %}
-                            <h1>Power supply may be insufficient consider editing your build.</h1>
-                        {% endif %}
-                            <h4 class="showusers__price">Total Price: £{{total.price}}</h4>
-                        </div>
-                        <a href="/builds/{{ build.id}}/edit"><button class="showusers__editbutton" type="submit">Edit Build</button></a>
-                            <div class="showusers__status">
-                                {% if build.completed == True and build.delivered == True %}
-                                    <h6>Build has been delivered</h6>
-                                {% elif build.completed == True and build.delivered != True %}
-                                    <h6>Build has been completed, and will be delivered soon.</h6>
-                                {% else %}
-                                    <h6>Build is pending.</h6>
-                                {% endif %}
-                            </div>
-                    {% endif %}
-                {% endfor %}
-            </ul>
+                    {% endfor %}
+                </ul>
 
+    </section>
 </main>
 {% endblock %}

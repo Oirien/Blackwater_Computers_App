@@ -1,12 +1,49 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-<main class="container components">
-    <h1 class="components__header">Browse Components</h1>
-		<div class="components__type">
-			{% for component_type in component_types %}
-				<p><a href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
-			{% endfor %}
-		</div>
+<main class="bg__components">
+	<section class="container components positionfix">
+		<h1 class="components__header">Browse Components</h1>
+			<div class="components__type">
+				{% for component_type in component_types %}
+					{% if component_type.type == "Storage" %}
+						<div class="component__type--storagewrapper">
+							<p class="component__type--storage"><a style="text-decoration:none" href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+						</div>
+					{% elif component_type.type == "CPU" %}
+						<div class="component__type--CPUwrapper">
+							<p class="component__type--CPU"><a style="text-decoration:none" href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+						</div>
+					{% elif component_type.type == "Motherboard" %}
+						<div class="component__type--Motherboardwrapper">
+							<p class="component__type--Motherboard"><a style="text-decoration:none" href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+						</div>
+					{% elif component_type.type == "GPU" %}
+						<div class="component__type--GPUwrapper">
+							<p class="component__type--GPU"><a style="text-decoration:none" href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+						</div>
+					{% elif component_type.type == "CPU Cooler" %}
+						<div class="component__type--CPU_Coolerwrapper">
+							<p class="component__type--CPU_Cooler"><a style="text-decoration:none" href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+						</div>
+					{% elif component_type.type == "Case" %}
+						<div class="component__type--Casewrapper">
+							<p class="component__type--Case"><a style="text-decoration:none" href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+						</div>
+					{% elif component_type.type == "RAM" %}
+						<div class="component__type--RAMwrapper">
+							<p class="component__type--RAM"><a style="text-decoration:none" href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+						</div>
+					{% elif component_type.type == "PSU" %}
+						<div class="component__type--PSUwrapper">
+							<p class="component__type--PSU"><a style="text-decoration:none" href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
+						</div>
+					{% else %}
+						<h6>Image not found</h6>
+					{% endif %}
+					
+				{% endfor %}
+			</div>
+	</section>
 </main>
 {% endblock %}
