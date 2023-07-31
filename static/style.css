@@ -1,4 +1,37 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+a:visited { 
+    text-decoration: none; 
+    color: rgb(129, 122, 70); 
+}
+
+/*
+    font-family: 'Libre Barcode 39 Text', cursive;
+
+    font-family: 'Share Tech Mono', monospace;
+
+    font-family: 'Tektur', cursive;
+*/
+
+.header{
+    height: 4rem;
+    background-color: blueviolet;
+}
+
+.header__list{
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto; 
 }

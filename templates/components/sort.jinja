@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<main>
-    <h1>{{ type }}'s</h1>
-        <div>
+<main class="container sortcomponent">
+    <h1 class="sortcomponent__header">{{ type }}'s</h1>
+        <div class="sortcomponent__types">
             {% for component in components %}
-                <p><a href="/components/show/{{ component.id }}">{{ component.name }}</a></p>
-                <img src="{{component.image_link}}" alt="{{component.image_link}}">
+                <p class="sortcomponent__name"><a href="/components/show/{{ component.id }}">{{ component.name }}</a></p>
+                <img class="sortcomponent__image" src="{{component.image_link}}" alt="{{component.image_link}}">
             {% endfor %}
         </div>
 </main>

@@ -4,10 +4,14 @@
   <title>Blackwater Computers</title>
 
   <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&family=Share+Tech+Mono&family=Tektur:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">  
 </head>
 <body>
-  <main class="header">
-  <nav>
+  <main>
+  <nav class="header">
+  <div class="container">
     <ul class="header__list">
       <li>
         <a href="/">Home</a>
@@ -22,6 +26,7 @@
         <a href="/components">Components</a>
       </li>
     </ul>
+  </div>
   </nav>
   <section id="content">
       {% block content %}

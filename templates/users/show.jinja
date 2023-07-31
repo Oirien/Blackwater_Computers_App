@@ -1,10 +1,10 @@
 {% extends 'base.jinja'%}
 
 {% block content %}
-<main>
-    <h1>{{user.first_name}} {{user.last_name}}</h1>
-        <h2>{{user.email}}</h2>
-            <ul>
+<main class="container showusers">
+    <h1 class="showusers__name">{{user.first_name}} {{user.last_name}}</h1>
+        <h2 class="showusers__email">{{user.email}}</h2>
+            <ul class="showusers__build">
                 {% for build in builds  %}
                     {% if build.user_id == user.id %}
                         <details>
@@ -13,8 +13,8 @@
                         {% set supply = namespace(watts = 0)%}
                         {% set cpu = namespace(chipset = '')%}
                         {% set mobo = namespace(chipset ='')%}
-                            <summary><h4> Build order number {{build.id}} </h4></summary>
-                            <div>
+                            <summary><h4 class="showusers__build--id"> Build order number {{build.id}} </h4></summary>
+                            <div class="showusers__build--details">
                                 {% for component in build.componentlist %}
                                     {% for part in components %}
                                         {% if component.component_id == part.id %}
@@ -43,17 +43,17 @@
                                 {% endfor %}
                             </div>
                         </details>
-                        <div>
+                        <div class="showusers__warnings">
                         {% if cpu.chipset != mobo.chipset %}
                             <h1>Warning, your CPU and Motherboard are incompatible, please edit your build.</h1>
                         {% endif %}
                         {% if (power.draw*1.15) >= supply.watts %}
                             <h1>Power supply may be insufficient consider editing your build.</h1>
                         {% endif %}
-                            <h4>Total Price: £{{total.price}}</h4>
+                            <h4 class="showusers__price">Total Price: £{{total.price}}</h4>
                         </div>
-                        <a href="/builds/{{ build.id}}/edit"><button type="submit">Edit Build</button></a>
-                            <div>
+                        <a href="/builds/{{ build.id}}/edit"><button class="showusers__editbutton" type="submit">Edit Build</button></a>
+                            <div class="showusers__status">
                                 {% if build.completed == True and build.delivered == True %}
                                     <h6>Build has been delivered</h6>
                                 {% elif build.completed == True and build.delivered != True %}

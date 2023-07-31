@@ -1,9 +1,9 @@
 {% extends 'base.jinja' %}
 
 {% block content %}
-<main>
-    <h1>Browse Components</h1>
-		<div>
+<main class="container components">
+    <h1 class="components__header">Browse Components</h1>
+		<div class="components__type">
 			{% for component_type in component_types %}
 				<p><a href="/components/sort/{{ component_type[0] }}">{{ component_type[0] }}</a></p>
 			{% endfor %}
