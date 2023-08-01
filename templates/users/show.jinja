@@ -24,7 +24,7 @@
                                         {% for part in components %}
                                             {% if component.component_id == part.id %}
                                                 <ul class="showusers__build--wrapper">
-                                                    <li class="showusers__build--name"><a href="/components/show/{{part.id}}">{{part.name}}</a>: £{{part.price}}</li>
+                                                    <li class="showusers__build--name"><a style="text-decoration:none" href="/components/show/{{part.id}}">{{part.name}}</a>: £{{part.price}}</li>
                                                     <div class="showusers__build--imagewrapper">
                                                     <img class="showusers__build--image" src={{part.image_link}} alt="{{part.type}}">
                                                     </div>

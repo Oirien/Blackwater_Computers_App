@@ -3,31 +3,33 @@
 {% block content %}
 <main class="bg__builds">
     <section class="container newbuild positionfix">
+    <div class="newbuild__wrapper">
         <h1 class="newbuild__header">Order a New Build</h1>
-            <div class="newbuild__form">
-                <form action="/builds" method="POST">
+                <form class="newbuild__form" action="/builds" method="POST">
                     <div class="newbuild__form--user">
                         <label for="user">Select User:</label>
-                        <select name="user" id="user">
+                        <select class="newbuild__dropdown" name="user" id="user">
                             {% for user in users %}
                                 <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="newbuild__form--component">
+                    <div class="newbuild__form--parts">
                         {% for component_type in component_types %}
+                        <div class="newbuild__form--component">
                             <label for="{{ component_type }}">{{ component_type }}:</label>
-                            <select name="{{ component_type }}" id="{{ component_type }}">
+                            <select class="newbuild__dropdown" name="{{ component_type }}" id="{{ component_type }}">
                                 <option class="newbuild__optionhead" value="">Select a {{ component_type }}</option>
                                 {% for component in components if component.type == component_type %}
                                     <option class="newbuild__option" value="{{ component.id }}">{{ component.name }}: £{{component.price}}</option>
                                 {% endfor %}
                             </select>
+                        </div>
                         {% endfor %}
                     </div>
                 <button class="newbuild__button" type="submit">Create Build</button>
             </form>
-        </div>
+    </div>
     </section>
 </main>
 {% endblock %}

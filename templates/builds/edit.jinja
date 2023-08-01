@@ -3,23 +3,27 @@
 {% block content %}
 <main class="bg__builds">
     <section class="container editbuild positionfix">
+    <div class="editbuild__wrapper">
         <h1 class="editbuild__header">Edit Build</h1>
             <div class="editbuild__form">
-                <form action="/builds/{{build.id}}" method="POST">
-                    <div class="editbuild__wrapper">
+                <form class="editbuild__form--parts" action="/builds/{{build.id}}" method="POST">
+                    <div class="editbuild__form--container">
                         {% for component_type in component_types %}
+                        <div class="editbuild__form--component">
                             <label for="{{ component_type }}">{{ component_type }}:</label>
-                            <select name="{{ component_type }}" id="{{ component_type }}">
-                                <option class="editbuild__optionhead" value="">Select a {{ component_type }}</option>
+                            <select class="editbuild__dropdown" name="{{ component_type }}" id="{{ component_type }}">
+                                <option value="">Select a {{ component_type }}</option>
                                 {% for component in components if component.type == component_type %}
-                                    <option class="editbuild__option" value="{{ component.id }}">{{ component.name }}: £{{component.price}}</option>
+                                    <option  value="{{ component.id }}">{{ component.name }}: £{{component.price}}</option>
                                 {% endfor %}
                             </select>
+                        </div>
                         {% endfor %}
                     </div>
-                <button type="submit" class="editbuild__button">Edit Build</button>
-            </form>
-        </div>
+                    <button type="submit" class="editbuild__button">Edit Build</button>
+                </form>
+            </div>
+    </div>
     </section>
 </main>
 {% endblock %}

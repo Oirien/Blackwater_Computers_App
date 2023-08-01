@@ -3,20 +3,20 @@
 {% block content %}
 <main class="bg__builds">
     <section class="container showbuild positionfix">
+    <div class="showbuild_wrapper">
         <h1 class="showbuild__header">Build order number: {{ build.id }}</h1>
         <h5 class="showbuild__username">{{ build.users.first_name }} {{ build.users.last_name }}</h5>
         
         {% for component_part in components %}
             <ul>
                 <div class="showbuild__card">
-                    <li>{{ component_part.component.image_link }}</li>
-                        <div class="showbuild__partdetails">
-                            <li>{{ component_part.component.name }}</li>
-                            <li>{{ component_part.component.description }}</li>
-                            <li>{{ component_part.component.type }}</li>
-                            <li>£{{ component_part.component.price }}</li>
-                            <li>Product is made by {{ component_part.component.manufacturer }}</li>
-                        </div>
+                    <div class="showbuild__partdetails">
+                        <li class="showbuild__partname"><a style="text-decoration:none" href="/components/show/{{component_part.component.id}}">{{ component_part.component.name }}: £{{ component_part.component.price }}</a></li>
+                        <li>{{ component_part.component.type }}</li>
+                    </div>
+                <div class="showusers__build--imagewrapper">
+                    <img class="showusers__build--image" src="{{ component_part.component.image_link }}" alt="{{component_part.component.type}}">
+                </div>
                 </div>
             </ul>
         {% endfor %}
@@ -32,19 +32,20 @@
         <div class="showbuild__buttonwrapper">
             <div class="showbuild__statusbutton">
                 <form action="/builds/{{ build.id }}/complete" method="POST">
-                    <button type="submit">Completed</button>
+                    <button class="showbuild__button" type="submit">Completed</button>
                 </form>
                 <form action="/builds/{{ build.id }}/deliver" method="POST">
-                    <button type="submit">Delivered</button>
+                    <button class="showbuild__button" type="submit">Delivered</button>
                 </form>
             </div>
-            <div class="showbuild__edit--delete">
-                <a style="text-decoration:none" href="/builds/{{ build.id}}/edit"><button class="showbuild__edit--button" type="submit">Edit Build</button></a>
+            <div class="showbuild__statusbutton">
+                <a style="text-decoration:none" href="/builds/{{ build.id}}/edit"><button class="showbuild__button" type="submit">Edit Build</button></a>
                 <form action="/builds/{{ build.id }}/delete" method="POST">
-                    <button class="showbuild__delete--button" type="submit" onclick="return confirm('Are you sure you want to delete this build?')">Delete Build</button>
+                    <button class="showbuild__button" type="submit" onclick="return confirm('Are you sure you want to delete this build?')">Delete Build</button>
                 </form>
             </div>
         </div>
+    </div>
     </section>
 </main>
 {% endblock %}
