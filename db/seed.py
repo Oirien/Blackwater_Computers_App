@@ -73,9 +73,9 @@ def seed():
     db.session.add_all([ram1, ram2, ram3])
     db.session.commit()
 
-    storage1 = Storage(name="Samsung 970 EVO 1TB", description="This is a storage description", image_link="This is a ssd picture", price=200, manufacturer="Samsung", power_draw=7)
-    storage2 = Storage(name="WD Blue 2TB", description="This is a storage description", image_link="This is a ssd picture", price=150, manufacturer="WD", power_draw=6)
-    storage3 = Storage(name="Seagate BarraCuda 4TB", description="This is a storage description", image_link="This is a hdd picture", price=180, manufacturer="Seagate", power_draw=8)
+    storage1 = Storage(name="Samsung 970 EVO 1TB", description="This is a storage description", image_link="/static/images/storage/SSD-970.jpg", price=200, manufacturer="Samsung", power_draw=7)
+    storage2 = Storage(name="WD Blue 2TB", description="This is a storage description", image_link="/static/images/storage/SSD-Seagate-BarraCuda.jpg", price=150, manufacturer="WD", power_draw=6)
+    storage3 = Storage(name="Seagate BarraCuda 4TB", description="This is a storage description", image_link="/static/images/storage/SSD-WDBlue.jpg", price=180, manufacturer="Seagate", power_draw=8)
     db.session.add_all([storage1, storage2, storage3])
     db.session.commit()
 

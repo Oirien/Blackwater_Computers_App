@@ -19,11 +19,11 @@ a:visited {
 */
 .positionfix{
     position: relative;
-    padding-top: 2rem;
 }
 
 .bg{
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     width: 100vw;
     position: relative;
     background-image: url(https://levvvel.com/wp-content/uploads/best-case-for-watercooling.jpg);
@@ -68,6 +68,58 @@ a:visited {
     font-family: 'Tektur', cursive;
 }
 
+.header__home{
+    transition: transform .2s;
+}
+.header__home:hover{
+    transform: scale(1.05);
+    text-shadow:
+        2px 2px 6px  rgb(0, 0, 0),
+      -1px -1px 6px rgb(0, 0, 0),  
+       1px -1px 6px rgb(0, 0, 0),
+       -1px 1px 6px rgb(0, 0, 0),
+        1px 1px 6px rgb(0, 0, 0);
+}
+
+.header__users{
+    transition: transform .2s;
+}
+.header__users:hover{
+    transform: scale(1.05);
+    text-shadow:
+        2px 2px 6px  rgb(0, 0, 0),
+      -1px -1px 6px rgb(0, 0, 0),  
+       1px -1px 6px rgb(0, 0, 0),
+       -1px 1px 6px rgb(0, 0, 0),
+        1px 1px 6px rgb(0, 0, 0);
+}
+
+.header__builds{
+    transition: transform .2s;
+}
+.header__builds:hover{
+    transform: scale(1.05);
+    text-shadow:
+        2px 2px 6px  rgb(0, 0, 0),
+      -1px -1px 6px rgb(0, 0, 0),  
+       1px -1px 6px rgb(0, 0, 0),
+       -1px 1px 6px rgb(0, 0, 0),
+        1px 1px 6px rgb(0, 0, 0);
+}
+
+.header__components{
+    transition: transform .2s;
+}
+.header__components:hover{
+    transform: scale(1.05);
+    text-shadow:
+        2px 2px 6px  rgb(0, 0, 0),
+      -1px -1px 6px rgb(0, 0, 0),  
+       1px -1px 6px rgb(0, 0, 0),
+       -1px 1px 6px rgb(0, 0, 0),
+        1px 1px 6px rgb(0, 0, 0);
+}
+
 .container{
     max-width: 1200px;
     width: 100%;
@@ -76,7 +128,8 @@ a:visited {
 }
 
 .bg__components{
-    height: 150vh;
+    min-height: 100vh;
+    height: 100%;
     width: 100vw;
     position: relative;
     background-image: url(https://www.ekwb.com/shop/media/wysiwyg/STL/Shop-the-loop-23-Hot-Metal-Gallery-Img4.png);
@@ -96,7 +149,8 @@ a:visited {
 }
 
 .bg__builds{
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     width: 100vw;
     position: relative;
     background-image: url(https://www.steigerdynamics.com/blog/wp-content/uploads/2021/08/IMG_5841-2IG-RETOUCH-1022x575.jpg);
@@ -116,7 +170,8 @@ a:visited {
 }
 
 .bg__users{
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     width: 100vw;
     position: relative;
     background-image: url(https://www.steigerdynamics.com/blog/wp-content/uploads/2021/08/IMG_5861-2IG-RETOUCH.jpg);
@@ -139,7 +194,7 @@ a:visited {
     text-align: center;
     font-size: 3rem;
     text-shadow: 0px 0px 6px black;
-    margin: 2rem;
+    padding: 2rem;
     font-family: 'Tektur', cursive;
     font-weight: 200;
     
@@ -383,4 +438,257 @@ a:visited {
 .component__type--CPU_Cooler:hover{
     transform:scale(1.2);
     font-weight: 700;
+}
+
+.sortcomponent__header{
+    text-transform: uppercase;
+    font-family: 'Tektur', cursive;
+    font-weight: 200;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+.sortcomponent__types{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.sortcomponent__types--type{
+    max-height: 400px;
+    max-width: 260px;
+    min-height: 400px;
+    min-width: 260px;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+    background-color: rgba(245, 245, 220, 0.3);
+}
+
+.sortcomponent__imagewrapper{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.sortcomponent__image{
+    max-width: 200%;
+    max-height: 75%;
+    position: top;
+    border-bottom: 1px solid rgba(255, 115, 0, 0.404);;
+}
+
+.sortcomponent__name{
+    text-align: center;
+    margin-top: 15%;
+    text-shadow:
+        0px 0px 6px  rgb(0, 0, 0);
+    font-weight: 100;
+    font-size: 1.25rem;
+    transition: transform .2s;
+}
+
+.sortcomponent__name:hover{
+    transform: scale(1.05);
+}
+
+.showcomponent__wrapper{
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, rgba(255, 115, 0, 0.404),rgba(0, 0, 0, 0)) 1 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.showcomponent__name{
+    text-transform: uppercase;
+    font-family: 'Tektur', cursive;
+    font-weight: 200;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem
+}
+
+.showcomponent__description{
+    font-size: 1rem;
+}
+
+.showcomponent__price{
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.showcomponent__imagewrapper{
+    width: 500px;
+    height: 180px;
+    overflow: hidden;
+    max-width: 150%;
+    max-height: 150%;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+}
+
+.showcomponent__image{
+    width: 100%;
+}
+.users{
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, rgba(255, 115, 0, 0.404),rgba(0, 0, 0, 0)) 1 100%;
+}
+
+.users__header{
+    text-transform: uppercase;
+    font-family: 'Tektur', cursive;
+    font-weight: 200;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.users__wrapper{
+    padding: 1rem;
+}
+
+.users__button{
+    padding: 0.5rem;
+    background-color: rgba(245, 245, 220, 0.3);
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 5px 5px 5px 25px;
+    transition: .3s;
+}
+
+.users__button:hover{
+    background-color: rgba(245, 245, 220, 0.4);
+    border: 1px solid rgba(255, 115, 0, 0.604);
+}
+
+.users__list{
+    font-size: 1.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.users__list--entry{
+    transition: 0.2s;
+}
+
+.users__list--entry:hover{
+    transform: scale(1.05);
+}
+
+.showusers__wrapper{
+    padding: 1rem;
+}
+
+.showusers__details{
+    margin-bottom: 2rem;
+}
+
+.showusers__name{
+    text-transform: uppercase;
+    font-family: 'Tektur', cursive;
+    font-weight: 200;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.showusers__email{
+    font-size: 1.125rem;
+    font-weight: 100;
+}
+
+.showusers__build{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 268px;
+}
+
+.showusers__build--id{
+    text-transform: uppercase;
+    font-family: 'Tektur', cursive;
+    font-weight: 200;
+    font-size: 1.125rem;
+    transition: .2s;
+}
+
+.showusers__build--id:hover{
+    transform: scale(1.02);
+}
+
+.showusers__build--imagewrapper{
+    width: 250px;
+    height: 100px;
+    overflow: hidden;
+    max-width: 150%;
+    max-height: 150%;
+    border-radius: 5px 5px 5px 50px;
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+}
+
+.showusers__build--image{
+    width: 100%;
+}
+
+.showusers__build--details{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+.showusers__build--wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.showusers__editbutton{
+    padding: 0.5rem;
+    width: 180px;
+    background-color: rgba(245, 245, 220, 0.3);
+    border: 1px solid rgba(255, 115, 0, 0.404);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    font-weight: 200;
+    border-radius: 5px 5px 5px 25px;
+    transition: .3s;
+}
+
+.showusers__editbutton:hover{
+    background-color: rgba(245, 245, 220, 0.4);
+    border: 1px solid rgba(255, 115, 0, 0.604);
+}
+
+
+.showusers__status{
+    font-weight: 100;
+}
+
+.showusers__container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 2rem;
+    align-content: flex-start;
 }

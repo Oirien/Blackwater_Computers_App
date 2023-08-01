@@ -2,12 +2,16 @@
 
 {% block content %}
 <main class="bg__users">
-    <section class="container showusers positionfix">
+    <section class="container users positionfix">
+    <div class="showusers__wrapper">
+        <div class="showusers__details">
         <h1 class="showusers__name">{{user.first_name}} {{user.last_name}}</h1>
             <h2 class="showusers__email">{{user.email}}</h2>
-                <ul class="showusers__build">
+        </div>
+        <div class="showusers__container">
                     {% for build in builds  %}
-                        {% if build.user_id == user.id %}
+                    {% if build.user_id == user.id %}
+                    <div class="showusers__build">
                             <details>
                             {% set total = namespace(price = 0) %}
                             {% set power = namespace(draw = 0)%}
@@ -19,11 +23,11 @@
                                     {% for component in build.componentlist %}
                                         {% for part in components %}
                                             {% if component.component_id == part.id %}
-                                                <ul>
-                                                    <li>{{part.name}}</li>
-                                                    <li>{{part.description}}</li>
-                                                    <li>{{part.image_link}}</li>
-                                                    <li>£{{part.price}}</li>
+                                                <ul class="showusers__build--wrapper">
+                                                    <li class="showusers__build--name"><a href="/components/show/{{part.id}}">{{part.name}}</a>: £{{part.price}}</li>
+                                                    <div class="showusers__build--imagewrapper">
+                                                    <img class="showusers__build--image" src={{part.image_link}} alt="{{part.type}}">
+                                                    </div>
                                                 </ul>
 
                                                 {% set total.price = total.price + part.price %}
@@ -53,7 +57,7 @@
                             {% endif %}
                                 <h4 class="showusers__price">Total Price: £{{total.price}}</h4>
                             </div>
-                            <a href="/builds/{{ build.id}}/edit"><button class="showusers__editbutton" type="submit">Edit Build</button></a>
+                            <a style="text-decoration:none" href="/builds/{{ build.id}}/edit"><button class="showusers__editbutton" type="submit">Edit Build</button></a>
                                 <div class="showusers__status">
                                     {% if build.completed == True and build.delivered == True %}
                                         <h6>Build has been delivered</h6>
@@ -63,10 +67,10 @@
                                         <h6>Build is pending.</h6>
                                     {% endif %}
                                 </div>
-                        {% endif %}
+                    </div>
+                    {% endif %}
                     {% endfor %}
-                </ul>
-
+        </div>
     </section>
 </main>
 {% endblock %}

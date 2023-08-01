@@ -2,12 +2,17 @@
 
 {% block content %}
 <main class="bg__components">
-    <section class="container showcontainer positionfix">
-        <div>
+    <section class="container showcomponent positionfix">
+        <div class="showcomponent__wrapper">
             {% if component %}
-                <h1 class="showcontainer__name">{{ component.name }}</h1>
-                <p class="showcontainer__description">{{ component.description }}</p>
-                <img class="showcontainer__image" src="{{ component.image_link }}" alt="Component Image">
+                <h1 class="showcomponent__name">{{ component.name }}</h1>
+                <div class="showcomponent__imagewrapper">
+                <img class="showcomponent__image" src="{{ component.image_link }}" alt="Component Image">
+                </div>
+                <p class="showcomponent__description">{{ component.description }}</p>
+                <p class="showcomponent__price">£{{ component.price }}</p>
+                <p class="showcomponent__manufacturer"> This product is made by {{ component.manufacturer }}</p>
+                
             {% else %}
                 <p>Component not found.</p>
             {% endif %}
