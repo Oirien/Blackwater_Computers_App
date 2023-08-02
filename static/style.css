@@ -479,9 +479,8 @@ a:link{
 }
 
 .sortcomponent__image{
-    max-width: 200%;
-    max-height: 75%;
-    position: top;
+    max-height: 290px;
+    min-height: 100%;
     border-bottom: 1px solid rgba(255, 115, 0, 0.404);;
 }
 
