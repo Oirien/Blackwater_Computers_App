@@ -194,6 +194,19 @@ a:link{
     opacity: .95;
 }
 
+.hero__wrapper{
+    padding: 2rem;
+    font-size: 2.5rem;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero__statement{
+    font-size: 1.75rem;
+}
+
 .components__header{
     text-align: center;
     font-size: 3rem;
@@ -852,7 +865,7 @@ a:link{
 .newbuild__form{
     display: flex;
     flex-direction: column;
-    width: 32%;
+    width: 44%;
     gap: 1rem;
     margin-top: 2rem;
 }
@@ -881,6 +894,11 @@ a:link{
 }
 
 .newbuild__form--component{
+    display: flex;
+    justify-content: space-between;
+}
+
+.newbuild__form--user{
     display: flex;
     justify-content: space-between;
 }
@@ -946,7 +964,7 @@ a:link{
 .editbuild__form{
     display: flex;
     flex-direction: column;
-    width: 32%;
+    width: 44%;
     gap: 1rem;
     margin-top: 2rem;
 }
