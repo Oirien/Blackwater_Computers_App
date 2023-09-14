@@ -8,6 +8,8 @@ This project was a brief to create a python MVC based app using flask and a post
 
 I learned a lot during the course of the project, however the learning outcome that surprised me the most was I went from not particularly enjoying CSS to really quite liking working with it. I however did find that SQL and join tables with polymorphic subclasses to be more difficult than I anticipated and given how they ended up structured in the database at the end I woulnd't have bothered with them again for this type of application.
 
+---
+
 Below are a couple of pictures of the final product.
 
 ![B1](https://github.com/Oirien/Blackwater_Computers_App/assets/136370232/5dcccde6-73ac-4b43-a20c-c5c9f9d1c8e7)
@@ -18,18 +20,18 @@ Below are a couple of pictures of the final product.
 
 You will need Python and Flask, as well as PostgreSQL and SQLAlchemy.
 
-
+On line 7 of app.py you will have to adjust the path to your own database.
 
 To start you will need to initialise and seed the database. We can do this by:
 
   flask db init
   flask db upgrade
   flask db migrate
-  flask db run seeds
+  flask db run seed
 
 Then after the database is properly seeded we run the following.
 
   flask run
 
-This should give a prompt to say 
+This should give a prompt to say that the app is running on the localhost.
 
